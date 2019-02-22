@@ -1,0 +1,14 @@
+package mediaTurma;
+
+public class Professor {
+	
+	private String nome;
+	
+	public Professor(String n) {
+		nome = n;
+	}
+	
+	public double getMedia() {
+		
+	}
+}

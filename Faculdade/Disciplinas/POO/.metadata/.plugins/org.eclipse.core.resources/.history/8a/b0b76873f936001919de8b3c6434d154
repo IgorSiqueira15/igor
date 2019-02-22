@@ -1,0 +1,10 @@
+package mediaTurma;
+
+public class Turma {
+
+	public double getMedia() {
+		
+		return 0;
+	}
+
+}

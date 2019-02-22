@@ -1,0 +1,15 @@
+package mediaTurma;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		Professor prof = new Professor ("Marcelo");
+		Turma tm = new Turma();
+
+		prof.setTurma(tm);
+		
+		double media = prof.getMedia();
+	}
+
+}

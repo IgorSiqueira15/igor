@@ -1,0 +1,15 @@
+package mediaTurma;
+
+public class Turma {
+
+	public double getMedia() {
+		
+		return 0;
+	}
+
+	public void addAluno(Aluno a1, Aluno a2) {
+		
+		
+	}
+
+}

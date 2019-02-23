@@ -1,0 +1,10 @@
+package Calculator;
+
+public class Soma {
+	
+	public static void main(String[] args) {
+		
+		Calculadora calc = new Calculadora();
+	}
+
+}

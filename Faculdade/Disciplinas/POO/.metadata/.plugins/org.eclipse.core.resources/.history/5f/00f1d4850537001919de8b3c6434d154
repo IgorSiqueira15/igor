@@ -1,0 +1,10 @@
+package Calculator;
+
+public class Soma {
+
+	public void setSoma(Calculadora calc) {
+		
+	}
+	
+
+}

@@ -1,0 +1,70 @@
+		*Legenda*
+
+- Protocolo: É uma serié de regras que fazem com que as comunicações em uma rede seja mais eficiente.
+
+- Definição Técnica: Série de regras ou acordos, que determina o formato das transmissões dos dados. Camada N de uma máquina se comunica com a camada N da outra máquina. As regras e convenções utilizadas nessas comunicações são comumente conhecidas como Protocolo da camada N.
+
+# Para que haja a comunicação entre computadores ou dispositovos eletronicos é necessário Protocolo.
+
+# Para fazer comunicação dos dados é necessária varias camadas e e protocolos.
+
+	*Modelo OSI[Open System Interconection]*
+
+_ Um sistema é dividido em sete níveis/camadas funcionais.
+
+7) Aplicação: É tudo que aparece na tela do seu computador ex(email, browser);
+
+6) Apresentação: Ela ajuda a camada de aplicação a mostrar dados, tecnicas de compressão como .zip, rar, segurança;
+ 
+5) Sessão: Faz a interface entre seu computador e servidor, controle de dialogo entre computador e servidor;
+
+4) Transporte: A partir daqui estamos dentro rede de computadores, onde cada protocolo tem sua porta especifica, faz comunicação das camadas inferiores com as camadas superiores;
+
+3) Rede: É a onde voce fala sobre endereço como IP(inthernet protocol);
+ 
+2) Enlace: é a onde voce pensa endereçamento fisico (MAC);
+
+1) Física: Qual tipo de cabo ou onda magnetica voce vai usar(wifi, 3g, ...);
+
+_ Os elementos da rede ao se enquadrarem no modelo OSI, permitem que os dados sejam transmitidos transparentemente de um nó da rede para o outro.
+
+_ O processo de comnicação começa na cama de aplicação e atravessa as diversas camadas sob a forma de uma unidade de informação PDU(Protocol Data Unit);
+
+		*Histórico e Nomenclaturas*
+
+# Rede é uma estrutura que serve a vários terminais, permitindo que eles se comuniquem entre si:
+
+¨No mundo da computação, as redes permitem:
+
+	Compartilhamento de dispositivos(economia de hardware)
+	Compartilhamento de aplicativos(economia de software)
+	Compartilhamento de meios
+	Distribuição geográfica de informação
+
+& Década de 1960
+
+- Todo o ambiente dde computação(computador+entrada+saida) no mesmo lugar
+
+- Pequena capacidade sistemas monoprogramados
+
+- Poucos usuários, mas experts em computação
+
+& Década de 1970
+
+- Aumenta a capacidade e surgem sistema multiprogramados
+
+- Torna se possível o uso simultâneo e compartilado por vários usuários
+
+- Processamento centralizado, mas vários terminais
+
+- Surgem o teleprocessamento e as redes clássicas
+
+- Majoritariamente aplicaçõe com batch
+
+& Década de 1980
+
+- Surgem os microprocessadores e as redes locais
+
+- Grande difisão de processamento distribuido
+
+- As tecnicas de processamento e de comunicação se tornam acessíveis ao publico em geral.

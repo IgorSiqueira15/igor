@@ -1,0 +1,60 @@
+   				*Configurar*
+
+ 
+- git config --global user.name "Name"
+
+- git config --global user.eamil "Email"
+
+- git config --global core.editor -> Nome do editor
+
+- git config --list -> Para listar tudo
+
+- git log -> buscar historico varias coisas pode pesquisar colocando parametro desejado
+
+- git diff -> 
+ 
+- git reset HEAD -> Tirar arquivo da fila para commit 
+
+- git reset --soft -> deixa arquivo mais mata commit
+
+- git reset --soft -> deixa commit mais deixa arquivo
+
+- git reset --hard -> Chuck Norris mata geral 
+
+
+FORK -> Copia projeto que não é seu e copia 
+
+- git branch -> lista branch exixstentes minha dev
+
+- git checkout -b [NOME] -> Criar branch
+
+- git branch -D [NOME] -> Deletar a branch
+
+
+MERGE -> E união de varias branch(Caminho principal do projeto)
+
+REBASE -> Ele clona o commit da branch e poe inicio da parte principal e apaga branch : perde ordem cronologic
+
+- git stash -> guarda modificação segundo plano 
+
+- git stash apply -> retorna modificação que estava em segundo plano
+
+- git stash list -> lista modificações seegundo plano
+
+- git stash clear -> limpa modificações em segundo plano
+
+*git config alias.s status
+
+' git status = git s 
+
+- git tag -a [VERSÃO] -M "[mensagem]" -> Cria tag
+
+- git tad -D [TAG] -> Deleta a tag
+
+- git commit -am "[MENSAGEM]" -> comita e ja manda 
+
+- git tag -> lista as tags 
+
+- git revert [Nº COMMIT] -> ele reverte o commit, reverte as mudanças e retorna o codigo anterior a mudança
+
+- git push origin: [NºTAG] -> apaga repositorio remoto as tags e branchs

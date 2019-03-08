@@ -14,7 +14,7 @@
     console.log(five + ' é número?', typeof five === 'number');
 
     var concat = "10" + "10";
-    console.log('"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string');
+    // console.log('"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string');
 
     /*
     Voltando ao exemplo da calculadora, vamos utilizar mais uma abordagem
@@ -122,7 +122,7 @@
     */
     function showErrorMessage(operador) {
 
-         if (operador != "-" || operador != "+" || operador != "*" || operador != "/" || operador != "%") {
+        if (operador != '-' || operador != '+' || operador != '*' || operador != '/' || operador != '%') {
             return ' Operação ' + operador + 'não permitida!';
         }
     }
@@ -133,7 +133,9 @@
     - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
     "operationSignal", sem valor por enquanto.
     */
-    // ?
+    var number1 = 0;
+    var number2 = 0;
+    var operationSignal;
 
     /*
     PASSO 2:
@@ -141,7 +143,8 @@
     variável chamada "sum", que receba a função "calculator", passando por
     parâmetro a variável que recebeu o sinal da operação.
     */
-    // ?
+    operationSignal = '+';
+    var sum = calculator(operationSignal)
 
     /*
     PASSO 3:
@@ -155,7 +158,19 @@
     - O segundo, a função de soma, passando os dois operandos.
     - Se "sum" for "false", mostrar no console a mensagem de erro.
     */
-    // ?
+   number1 = 2;
+   number2 = 5;
+
+    if (sum == false) {
+        console.log(showErrorMessage);
+    }
+
+    console.log(showOperationMessage('+'));
+    console.log(sum);
+    
+
+
+
 
     /*
     Repita desde o "PASSO 2" com as operações de subtração, multiplicação,

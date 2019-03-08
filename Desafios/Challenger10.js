@@ -10,11 +10,11 @@
     das variáveis. Analise o que está sendo impresso no console para saber como
     resolver o problema corretamente.
     */
-    var five = 5;
+    var five = Number('5');
     console.log(five + ' é número?', typeof five === 'number');
 
-    var concat = "10" + "10";
-    // console.log('"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string');
+    var concat = String(10) + String(10);
+    console.log('"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string');
 
     /*
     Voltando ao exemplo da calculadora, vamos utilizar mais uma abordagem
@@ -54,7 +54,7 @@
     - O desafio é fazer o retorno sem usar "if" ou "switch".
     */
     function isOperatorValid(operacao) {
-        return (operacao == "-" || operacao == "+" || operacao == "*" || operacao == "/" || operacao == "%");
+        return (operacao === "-" || operacao === "+" || operacao === "*" || operacao === "/" || operacao === "%");
     }
     // console.log(isOperatorValid());
 

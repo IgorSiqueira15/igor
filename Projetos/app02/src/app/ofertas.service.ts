@@ -69,6 +69,21 @@ export class OfertasService {
         }else{
             reject({ codigo_erro: 404, mensagem_erro: 'Not Found'});
         }
-        });
+        })
+        .then((ofertas: Oferta[]) => {
+            // Fazer alguma trativa
+            console.log('primeiro then');
+            return ofertas;    
+        })
+        .then((ofertas: Oferta[]) => {
+            console.log('segundo then');
+            return new Promise((resolve2, reject2) => {
+                setTimeout(() => { resolve2( ofertas ) }, 3000)
+            })            
+        })
+        .then((ofertas: Oferta[]) => {
+            console.log('terceiro then executado apos 3 segundos por que estava aguardando a promisse');
+            return ofertas
+        })
     }
 }

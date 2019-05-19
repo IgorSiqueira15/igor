@@ -1,0 +1,14 @@
+
+public class Pessoa {
+	public String nome;
+	public String sexo;
+}
+
+
+public class Mulher extends Pessoa{
+	
+	public Mulher(String nome) {
+		this.nome = nome;
+		System.out.println("Ola senhora " + this.nome);
+	}
+}

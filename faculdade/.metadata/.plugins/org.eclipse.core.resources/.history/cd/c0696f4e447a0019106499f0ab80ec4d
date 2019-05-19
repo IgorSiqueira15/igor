@@ -1,0 +1,9 @@
+package Prototype;
+
+public class PalioPrototype {
+
+	public CarroPrototype clonar() {
+		return null;
+	}
+
+}

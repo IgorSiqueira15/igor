@@ -18,11 +18,11 @@ export class AppComponent implements OnInit {
   produto4: Produto[] = [];
   produto5: Produto[] = [];
 
-  desembro1: Produto[] = [];
-  desembro2: Produto[] = [];
-  desembro3: Produto[] = [];
-  desembro4: Produto[] = [];
-  desembro5: Produto[] = [];
+  dezembro1: Produto[] = [];
+  dezembro2: Produto[] = [];
+  dezembro3: Produto[] = [];
+  dezembro4: Produto[] = [];
+  dezembro5: Produto[] = [];
 
   constructor(public http: HttpClient) {}
 
@@ -30,19 +30,17 @@ export class AppComponent implements OnInit {
     this.http.get<any>(this.urlToJson).subscribe(response => {
       this.result = response;
 
-      this.teste();
-
-      this.verificarMes();
+      this.printConsole();
     });
   }
 
-  verificarMes() {
-    for (let i = 0; i <= this.result; i++) {}
-  }
+  printConsole() {
+    console.log('Todos os itens: ', this.result);
 
-  teste() {
-    // console.log(this.result);
-    // this.separaItens(this.result);
+    console.log('Ordenando o JSON por item: ');
+    this.separaItens(this.result);
+
+    console.log('Filtrando os produtos do mês de dezembro de 2018: ');
     this.separaProdutoMes(this.result);
   }
 
@@ -74,51 +72,32 @@ export class AppComponent implements OnInit {
 
   separaProdutoMes(produtos: Produto[]) {
     produtos.forEach(produto => {
-      if (
-        produto.item == 'item 1' &&
-        produto.dia.charAt(3) == '1' &&
-        produto.dia.charAt(4) == '2'
-      ) {
-        this.desembro1.push(produto);
+      if (produto.item == 'item 1' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro1.push(produto);
       }
-      if (
-        produto.item == 'item 2' &&
-        produto.dia.charAt(3) == '1' &&
-        produto.dia.charAt(4) == '2'
-      ) {
-        this.desembro2.push(produto);
+      if (produto.item == 'item 2' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro2.push(produto);
       }
-      if (
-        produto.item == 'item 3' &&
-        produto.dia.charAt(3) == '1' &&
-        produto.dia.charAt(4) == '2'
-      ) {
-        this.desembro3.push(produto);
+      if (produto.item == 'item 3' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro3.push(produto);
       }
-      if (
-        produto.item == 'item 4' &&
-        produto.dia.charAt(3) == '1' &&
-        produto.dia.charAt(4) == '2'
-      ) {
-        this.desembro4.push(produto);
+      if (produto.item == 'item 4' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro4.push(produto);
       }
-      if (
-        produto.item == 'item 5' &&
-        produto.dia.charAt(3) == '1' &&
-        produto.dia.charAt(4) == '2'
-      ) {
-        this.desembro5.push(produto);
+      if (produto.item == 'item 5' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro5.push(produto);
       }
     });
-    console.log(this.desembro1);
-    // console.log(this.desembro2);
-    // console.log(this.desembro3);
-    // console.log(this.desembro4);
-    // console.log(this.desembro5);
-    this.veificaQuantidadeItens(this.desembro1);
-  }
+    console.log(this.dezembro1);
+    console.log(this.dezembro2);
+    console.log(this.dezembro3);
+    console.log(this.dezembro4);
+    console.log(this.dezembro5);
 
-  veificaQuantidadeItens(produtos: Produto[]) {
+    console.log('Soma de quantidade e valor total vendido: ');
+    this.verificaQuantidadeItens(this.dezembro1);
+  }
+  verificaQuantidadeItens(produtos: Produto[]) {
     let quantidadeTotal = 0;
     let valorTotal = 0;
     produtos.forEach(produto => {

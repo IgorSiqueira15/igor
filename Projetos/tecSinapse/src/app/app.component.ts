@@ -95,9 +95,13 @@ export class AppComponent implements OnInit {
     console.log(this.dezembro5);
 
     console.log('Soma de quantidade e valor total vendido: ');
-    this.verificaQuantidadeItens(this.dezembro1);
+    this.verificaQuantidadeItem1(this.dezembro1);
+    this.verificaQuantidadeItem2(this.dezembro2);
+    this.verificaQuantidadeItem3(this.dezembro3);
+    this.verificaQuantidadeItem4(this.dezembro4);
+    this.verificaQuantidadeItem5(this.dezembro5);
   }
-  verificaQuantidadeItens(produtos: Produto[]) {
+  verificaQuantidadeItem1(produtos: Produto[]) {
     let quantidadeTotal = 0;
     let valorTotal = 0;
     produtos.forEach(produto => {
@@ -105,7 +109,55 @@ export class AppComponent implements OnInit {
       valorTotal += produto.total;
     });
 
-    console.log('Pronduto 1:');
+    console.log('Produto 1:');
+    console.log('Quantidade: ', quantidadeTotal);
+    console.log('ValorTotal: ', valorTotal);
+  }
+  verificaQuantidadeItem2(produtos: Produto[]) {
+    let quantidadeTotal = 0;
+    let valorTotal = 0;
+    produtos.forEach(produto => {
+      quantidadeTotal += produto.quantidade;
+      valorTotal += produto.total;
+    });
+
+    console.log('Produto 2:');
+    console.log('Quantidade: ', quantidadeTotal);
+    console.log('ValorTotal: ', valorTotal);
+  }
+  verificaQuantidadeItem3(produtos: Produto[]) {
+    let quantidadeTotal = 0;
+    let valorTotal = 0;
+    produtos.forEach(produto => {
+      quantidadeTotal += produto.quantidade;
+      valorTotal += produto.total;
+    });
+
+    console.log('Produto 3:');
+    console.log('Quantidade: ', quantidadeTotal);
+    console.log('ValorTotal: ', valorTotal);
+  }
+  verificaQuantidadeItem4(produtos: Produto[]) {
+    let quantidadeTotal = 0;
+    let valorTotal = 0;
+    produtos.forEach(produto => {
+      quantidadeTotal += produto.quantidade;
+      valorTotal += produto.total;
+    });
+
+    console.log('Produto 4:');
+    console.log('Quantidade: ', quantidadeTotal);
+    console.log('ValorTotal: ', valorTotal);
+  }
+  verificaQuantidadeItem5(produtos: Produto[]) {
+    let quantidadeTotal = 0;
+    let valorTotal = 0;
+    produtos.forEach(produto => {
+      quantidadeTotal += produto.quantidade;
+      valorTotal += produto.total;
+    });
+
+    console.log('Produto 5:');
     console.log('Quantidade: ', quantidadeTotal);
     console.log('ValorTotal: ', valorTotal);
   }

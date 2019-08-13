@@ -10,7 +10,9 @@ import { Produto } from './produto';
 export class AppComponent implements OnInit {
   title = 'tecSinapse';
   result: any;
-  urlToJson = 'assets/recrutamento.json';
+  urlToJson = 'https://eventsync.portaltecsinapse.com.br/public/recrutamento/input?email=igorbertoldo2011@hotmail.com';
+
+  produto: Produto;
 
   produto1: Produto[] = [];
   produto2: Produto[] = [];
@@ -24,6 +26,8 @@ export class AppComponent implements OnInit {
   dezembro4: Produto[] = [];
   dezembro5: Produto[] = [];
 
+  teste: number;
+
   constructor(public http: HttpClient) {}
 
   ngOnInit() {
@@ -32,6 +36,30 @@ export class AppComponent implements OnInit {
 
       this.printConsole();
     });
+
+    // var ajax = new XMLHttpRequest();
+
+    // // Seta tipo de requisição: Post e a URL da API
+    // ajax.open(
+    //   'POST',
+    //   'https://eventsync.portaltecsinapse.com.br/public/recrutamento/finalizar?email=igorbertoldo2011@hotmail.com',
+    //   true
+    // );
+    // ajax.setRequestHeader('Content-type', 'text/plain');
+
+    // // Seta paramêtros da requisição e envia a requisição
+    // ajax.send('');
+
+    // // Cria um evento para receber o retorno.
+    // ajax.onreadystatechange = function() {
+    //   // Caso o state seja 4 e o http.status for 200, é porque a requisição deu certo.
+    //   if (ajax.readyState == 4 && ajax.status == 200) {
+    //     var data = ajax.responseText;
+
+    //     // Retorno do Ajax
+    //     console.log(data);
+    //   }
+    // };
   }
 
   printConsole() {
@@ -111,7 +139,7 @@ export class AppComponent implements OnInit {
 
     console.log('Produto 1:');
     console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', valorTotal);
+    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
   }
   verificaQuantidadeItem2(produtos: Produto[]) {
     let quantidadeTotal = 0;
@@ -123,7 +151,7 @@ export class AppComponent implements OnInit {
 
     console.log('Produto 2:');
     console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', valorTotal);
+    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
   }
   verificaQuantidadeItem3(produtos: Produto[]) {
     let quantidadeTotal = 0;
@@ -135,7 +163,7 @@ export class AppComponent implements OnInit {
 
     console.log('Produto 3:');
     console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', valorTotal);
+    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
   }
   verificaQuantidadeItem4(produtos: Produto[]) {
     let quantidadeTotal = 0;
@@ -147,7 +175,7 @@ export class AppComponent implements OnInit {
 
     console.log('Produto 4:');
     console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', valorTotal);
+    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
   }
   verificaQuantidadeItem5(produtos: Produto[]) {
     let quantidadeTotal = 0;
@@ -159,6 +187,6 @@ export class AppComponent implements OnInit {
 
     console.log('Produto 5:');
     console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', valorTotal);
+    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
   }
 }

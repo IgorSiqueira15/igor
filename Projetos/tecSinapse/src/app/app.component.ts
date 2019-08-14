@@ -13,6 +13,11 @@ export class AppComponent implements OnInit {
   urlToJson = 'https://eventsync.portaltecsinapse.com.br/public/recrutamento/input?email=igorbertoldo2011@hotmail.com';
 
   produto: Produto;
+  quantidadeTotal: number = 0;
+  valorTotal: number = 0;
+  item: number = 0;
+  valor: number = 0;
+  itemFinal: number = 0;
 
   produto1: Produto[] = [];
   produto2: Produto[] = [];
@@ -36,30 +41,6 @@ export class AppComponent implements OnInit {
 
       this.printConsole();
     });
-
-    // var ajax = new XMLHttpRequest();
-
-    // // Seta tipo de requisição: Post e a URL da API
-    // ajax.open(
-    //   'POST',
-    //   'https://eventsync.portaltecsinapse.com.br/public/recrutamento/finalizar?email=igorbertoldo2011@hotmail.com',
-    //   true
-    // );
-    // ajax.setRequestHeader('Content-type', 'text/plain');
-
-    // // Seta paramêtros da requisição e envia a requisição
-    // ajax.send('');
-
-    // // Cria um evento para receber o retorno.
-    // ajax.onreadystatechange = function() {
-    //   // Caso o state seja 4 e o http.status for 200, é porque a requisição deu certo.
-    //   if (ajax.readyState == 4 && ajax.status == 200) {
-    //     var data = ajax.responseText;
-
-    //     // Retorno do Ajax
-    //     console.log(data);
-    //   }
-    // };
   }
 
   printConsole() {
@@ -123,70 +104,68 @@ export class AppComponent implements OnInit {
     console.log(this.dezembro5);
 
     console.log('Soma de quantidade e valor total vendido: ');
-    this.verificaQuantidadeItem1(this.dezembro1);
-    this.verificaQuantidadeItem2(this.dezembro2);
-    this.verificaQuantidadeItem3(this.dezembro3);
-    this.verificaQuantidadeItem4(this.dezembro4);
-    this.verificaQuantidadeItem5(this.dezembro5);
+    this.verificaQuantidadeItem(this.dezembro1);
+    console.log('item 1#:');
+    console.log('Quantidade: ', this.quantidadeTotal);
+    console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
+    this.verificaQuantidadeItem(this.dezembro2);
+    console.log('item 2#:');
+    console.log('Quantidade: ', this.quantidadeTotal);
+    console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
+    this.verificaQuantidadeItem(this.dezembro3);
+    console.log('item 3#:');
+    console.log('Quantidade: ', this.quantidadeTotal);
+    console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
+    this.verificaQuantidadeItem(this.dezembro4);
+    console.log('item 4#:');
+    console.log('Quantidade: ', this.quantidadeTotal);
+    console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
+    this.verificaQuantidadeItem(this.dezembro5);
+    console.log('item 5#:');
+    console.log('Quantidade: ', this.quantidadeTotal);
+    console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
   }
-  verificaQuantidadeItem1(produtos: Produto[]) {
-    let quantidadeTotal = 0;
-    let valorTotal = 0;
+  verificaQuantidadeItem(produtos: Produto[]) {
     produtos.forEach(produto => {
-      quantidadeTotal += produto.quantidade;
-      valorTotal += produto.total;
+      this.quantidadeTotal += produto.quantidade;
+      this.valorTotal += produto.total;
     });
-
-    console.log('Produto 1:');
-    console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
+    this.item++;
+    this.verificaMaior(this.valorTotal, this.item);
   }
-  verificaQuantidadeItem2(produtos: Produto[]) {
-    let quantidadeTotal = 0;
-    let valorTotal = 0;
-    produtos.forEach(produto => {
-      quantidadeTotal += produto.quantidade;
-      valorTotal += produto.total;
-    });
 
-    console.log('Produto 2:');
-    console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
+  verificaMaior(v, item) {
+    if (v > this.valor) {
+      this.valor = v;
+      this.itemFinal = item;
+      this.valor = Math.round(this.valor * 100) / 100;
+    }
+    console.log('item ' + this.itemFinal + '#' + this.valor);
   }
-  verificaQuantidadeItem3(produtos: Produto[]) {
-    let quantidadeTotal = 0;
-    let valorTotal = 0;
-    produtos.forEach(produto => {
-      quantidadeTotal += produto.quantidade;
-      valorTotal += produto.total;
-    });
 
-    console.log('Produto 3:');
-    console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
-  }
-  verificaQuantidadeItem4(produtos: Produto[]) {
-    let quantidadeTotal = 0;
-    let valorTotal = 0;
-    produtos.forEach(produto => {
-      quantidadeTotal += produto.quantidade;
-      valorTotal += produto.total;
-    });
+  sendPost() {
+    var ajax = new XMLHttpRequest();
 
-    console.log('Produto 4:');
-    console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
-  }
-  verificaQuantidadeItem5(produtos: Produto[]) {
-    let quantidadeTotal = 0;
-    let valorTotal = 0;
-    produtos.forEach(produto => {
-      quantidadeTotal += produto.quantidade;
-      valorTotal += produto.total;
-    });
+    // Seta tipo de requisição: Post e a URL da API
+    ajax.open(
+      'POST',
+      'https://eventsync.portaltecsinapse.com.br/public/recrutamento/finalizar?email=igorbertoldo2011@hotmail.com',
+      true
+    );
+    ajax.setRequestHeader('Content-type', 'text/plain');
 
-    console.log('Produto 5:');
-    console.log('Quantidade: ', quantidadeTotal);
-    console.log('ValorTotal: ', Math.round(valorTotal * 100) / 100);
+    // Seta paramêtros da requisição e envia a requisição
+    ajax.send('item ' + this.itemFinal + '#' + this.valor);
+
+    // Cria um evento para receber o retorno.
+    ajax.onreadystatechange = function() {
+      // Caso o state seja 4 e o http.status for 200, é porque a requisição deu certo.
+      if (ajax.readyState == 4 && ajax.status == 200) {
+        var data = ajax.responseText;
+
+        // Retorno do Ajax
+        console.log(data);
+      }
+    };
   }
 }

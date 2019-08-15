@@ -31,8 +31,6 @@ export class AppComponent implements OnInit {
   dezembro4: Produto[] = [];
   dezembro5: Produto[] = [];
 
-  teste: number;
-
   constructor(public http: HttpClient) {}
 
   ngOnInit() {
@@ -51,52 +49,13 @@ export class AppComponent implements OnInit {
 
     console.log('Filtrando os produtos do mês de dezembro de 2018: ');
     this.separaProdutoMes(this.result);
-  }
-
-  separaItens(produtos: Produto[]) {
-    produtos.forEach(produto => {
-      if (produto.item == 'item 1') {
-        this.produto1.push(produto);
-      }
-      if (produto.item == 'item 2') {
-        this.produto2.push(produto);
-      }
-      if (produto.item == 'item 3') {
-        this.produto3.push(produto);
-      }
-      if (produto.item == 'item 4') {
-        this.produto4.push(produto);
-      }
-      if (produto.item == 'item 5') {
-        this.produto5.push(produto);
-      }
-    });
 
     console.log(this.produto1);
     console.log(this.produto2);
     console.log(this.produto3);
     console.log(this.produto4);
     console.log(this.produto5);
-  }
 
-  separaProdutoMes(produtos: Produto[]) {
-    produtos.forEach(produto => {
-      if (produto.item == 'item 1' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
-        this.dezembro1.push(produto);
-      }
-      if (produto.item == 'item 2' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
-        this.dezembro2.push(produto);
-      }
-      if (produto.item == 'item 3' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
-        this.dezembro3.push(produto);
-      }
-      if (produto.item == 'item 4' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
-        this.dezembro4.push(produto);
-      }
-      if (produto.item == 'item 5' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
-        this.dezembro5.push(produto);
-      }
-    });
     console.log(this.dezembro1);
     console.log(this.dezembro2);
     console.log(this.dezembro3);
@@ -124,6 +83,48 @@ export class AppComponent implements OnInit {
     console.log('item 5#:');
     console.log('Quantidade: ', this.quantidadeTotal);
     console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
+
+    this.sendPost();
+  }
+
+  separaItens(produtos: Produto[]) {
+    produtos.forEach(produto => {
+      if (produto.item == 'item 1') {
+        this.produto1.push(produto);
+      }
+      if (produto.item == 'item 2') {
+        this.produto2.push(produto);
+      }
+      if (produto.item == 'item 3') {
+        this.produto3.push(produto);
+      }
+      if (produto.item == 'item 4') {
+        this.produto4.push(produto);
+      }
+      if (produto.item == 'item 5') {
+        this.produto5.push(produto);
+      }
+    });
+  }
+
+  separaProdutoMes(produtos: Produto[]) {
+    produtos.forEach(produto => {
+      if (produto.item == 'item 1' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro1.push(produto);
+      }
+      if (produto.item == 'item 2' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro2.push(produto);
+      }
+      if (produto.item == 'item 3' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro3.push(produto);
+      }
+      if (produto.item == 'item 4' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro4.push(produto);
+      }
+      if (produto.item == 'item 5' && produto.dia.charAt(3) == '1' && produto.dia.charAt(4) == '2') {
+        this.dezembro5.push(produto);
+      }
+    });
   }
   verificaQuantidadeItem(produtos: Produto[]) {
     produtos.forEach(produto => {
@@ -132,6 +133,7 @@ export class AppComponent implements OnInit {
     });
     this.item++;
     this.verificaMaior(this.valorTotal, this.item);
+    console.log('item ' + this.itemFinal + '#' + this.valor);
   }
 
   verificaMaior(v, item) {
@@ -140,7 +142,6 @@ export class AppComponent implements OnInit {
       this.itemFinal = item;
       this.valor = Math.round(this.valor * 100) / 100;
     }
-    console.log('item ' + this.itemFinal + '#' + this.valor);
   }
 
   sendPost() {

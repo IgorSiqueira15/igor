@@ -47,7 +47,6 @@ export class AppComponent implements OnInit {
     console.log('Ordenando o JSON por item: ');
     this.separaItens(this.result);
 
-    console.log('Filtrando os produtos do mês de dezembro de 2018: ');
     this.separaProdutoMes(this.result);
 
     console.log(this.produto1);
@@ -56,6 +55,7 @@ export class AppComponent implements OnInit {
     console.log(this.produto4);
     console.log(this.produto5);
 
+    console.log('Filtrando os produtos do mês de dezembro de 2018: ');
     console.log(this.dezembro1);
     console.log(this.dezembro2);
     console.log(this.dezembro3);
@@ -64,23 +64,23 @@ export class AppComponent implements OnInit {
 
     console.log('Soma de quantidade e valor total vendido: ');
     this.verificaQuantidadeItem(this.dezembro1);
-    console.log('item 1#:');
+    console.log('item 1:');
     console.log('Quantidade: ', this.quantidadeTotal);
     console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
     this.verificaQuantidadeItem(this.dezembro2);
-    console.log('item 2#:');
+    console.log('item 2:');
     console.log('Quantidade: ', this.quantidadeTotal);
     console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
     this.verificaQuantidadeItem(this.dezembro3);
-    console.log('item 3#:');
+    console.log('item 3:');
     console.log('Quantidade: ', this.quantidadeTotal);
     console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
     this.verificaQuantidadeItem(this.dezembro4);
-    console.log('item 4#:');
+    console.log('item 4:');
     console.log('Quantidade: ', this.quantidadeTotal);
     console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
     this.verificaQuantidadeItem(this.dezembro5);
-    console.log('item 5#:');
+    console.log('item 5:');
     console.log('Quantidade: ', this.quantidadeTotal);
     console.log('ValorTotal: ', Math.round(this.valorTotal * 100) / 100);
 
@@ -127,13 +127,14 @@ export class AppComponent implements OnInit {
     });
   }
   verificaQuantidadeItem(produtos: Produto[]) {
+    this.quantidadeTotal = 0;
+    this.valorTotal = 0;
     produtos.forEach(produto => {
       this.quantidadeTotal += produto.quantidade;
       this.valorTotal += produto.total;
     });
     this.item++;
     this.verificaMaior(this.valorTotal, this.item);
-    console.log('item ' + this.itemFinal + '#' + this.valor);
   }
 
   verificaMaior(v, item) {
@@ -157,6 +158,7 @@ export class AppComponent implements OnInit {
 
     // Seta paramêtros da requisição e envia a requisição
     ajax.send('item ' + this.itemFinal + '#' + this.valor);
+    console.log('item ' + this.itemFinal + '#' + this.valor);
 
     // Cria um evento para receber o retorno.
     ajax.onreadystatechange = function() {

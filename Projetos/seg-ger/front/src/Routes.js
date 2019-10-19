@@ -15,7 +15,7 @@ export class Routes extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/about" component={About} />
                     <Route path="/contact" component={Contact} />
-                    <Route path="/login" componen={Login}/>
+                    <Route path="/login" component={Login}/>
                     <Route component={NotFound} />
                 </Switch>
             </div>

@@ -2,7 +2,7 @@
   <p-panel draggable="false" header="Fazer" class="ui-g-12 ui-md-4">
     <ul >
       <li *ngFor="let item of items" class="ui-helper-clearfix" pDraggable="item"
-      (onDragStart)="dragStart($event,item)">
+      (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" (onDrop)="drop($event)">
       <div>{{ item.id }} - {{ item.responsavel }}</div>
     </li> 
     </ul>
@@ -10,7 +10,7 @@
   <p-panel draggable="false" header="Fazendo" class="ui-g-12 ui-md-4">
     <ul>
       <li *ngFor="let item of items" class="ui-helper-clearfix" pDraggable="item"
-      (onDragStart)="dragStart($event,item)">
+      (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" (onDrop)="drop($event)">
       <div>{{ item.id }} - {{ item.responsavel }}</div>
     </li>
     </ul>
@@ -18,7 +18,7 @@
   <p-panel draggable="false"header="Feito" class="ui-g-12 ui-md-4">
     <ul>
       <li *ngFor="let item of items" class="ui-helper-clearfix" pDraggable="item"
-      (onDragStart)="dragStart($event,item)">
+      (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" (onDrop)="drop($event)">
       <div>{{ item.id }} - {{ item.responsavel }}</div>
     </li>
     </ul>

@@ -1,26 +1,32 @@
-<div class="ui-g-12">
-  <p-panel draggable="false" header="Fazer" class="ui-g-12 ui-md-4">
-    <ul >
-      <li *ngFor="let item of items" class="ui-helper-clearfix" pDraggable="item"
-      (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" (onDrop)="drop($event)">
-      <div>{{ item.id }} - {{ item.responsavel }}</div>
-    </li> 
-    </ul>
-  </p-panel>
-  <p-panel draggable="false" header="Fazendo" class="ui-g-12 ui-md-4">
-    <ul>
-      <li *ngFor="let item of items" class="ui-helper-clearfix" pDraggable="item"
-      (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" (onDrop)="drop($event)">
-      <div>{{ item.id }} - {{ item.responsavel }}</div>
-    </li>
-    </ul>
-  </p-panel>
-  <p-panel draggable="false"header="Feito" class="ui-g-12 ui-md-4">
-    <ul>
-      <li *ngFor="let item of items" class="ui-helper-clearfix" pDraggable="item"
-      (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" (onDrop)="drop($event)">
-      <div>{{ item.id }} - {{ item.responsavel }}</div>
-    </li>
-    </ul>
-  </p-panel>
+<div class="card-content">
+  <div class="card-body">
+
+    <div class="ui-g-12">
+      <p-panel draggable="false" header="Fazer" class="ui-g-12 ui-md-4">
+        <ul>
+          <div *ngFor="let item of items" class="border" pDraggable="item" (onDragStart)="dragStart($event,item)"
+            (onDragEnd)="dragEnd($event)">
+            <button class="btn btn-default">{{ item.id }} - {{ item.responsavel }}</button>
+          </div>
+        </ul>
+      </p-panel>
+      <p-panel draggable="false" header="Fazendo" pDroppable="item" (onDrop)="drop($event)"
+        class="ui-g-12 ui-md-4 drop">
+        <ul>
+          <div *ngFor="let item of dropped" pDraggable="item" (onDragStart)="dragStart($event,item)"
+            (onDragEnd)="dragEnd($event)">
+            <button class="btn btn-default">{{ item.id }} - {{ item.responsavel }}</button>
+          </div>
+        </ul>
+      </p-panel>
+      <p-panel draggable="false" header="Feito" pDroppable="item" (onDrop)="drop($event)" class="ui-g-12 ui-md-4 drop">
+        <ul>
+          <div *ngFor="let i of dropped" pDraggable="item" (onDragStart)="dragStart($event,item)"
+            (onDragEnd)="dragEnd($event)">
+            <button class="btn btn-primary">{{ i.id }} - {{ i.responsavel }}</button>
+          </div>
+        </ul>
+      </p-panel>
+    </div>
+  </div>
 </div>

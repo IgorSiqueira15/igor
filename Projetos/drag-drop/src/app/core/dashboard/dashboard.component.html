@@ -2,7 +2,7 @@
   <div class="card-body">
 
     <div class="ui-g-12">
-      <p-panel draggable="false" header="Fazer" class="ui-g-12 ui-md-4">
+      <p-panel draggable="false" header="Fazer" class="ui-g-12 ui-md-4"  pDroppable="item" (onDrop)="drop($event)">
         <ul>
           <div *ngFor="let item of items" class="border" pDraggable="item" (onDragStart)="dragStart($event,item)"
             (onDragEnd)="dragEnd($event)">

@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CoreService } from './core/core.service';
 import { CommonModule } from '@angular/common';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,

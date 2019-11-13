@@ -34,4 +34,12 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  // onModalItem() {
+  //   const modal = this.modal.open(AutorModalListComponent, { size: 'lg' });
+  //   modal.result.then(confirmado => {
+  //     this.onListar();
+  //   });
+  // }
+
+
 }

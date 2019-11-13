@@ -6,7 +6,7 @@
         <ul>
           <div *ngFor="let item of items" class="border" pDraggable="item" (onDragStart)="dragStart($event,item)"
             (onDragEnd)="dragEnd($event)">
-            <button class="btn btn-default">{{ item.id }} - {{ item.responsavel }}</button>
+            <button class="btn btn-default" (click)="onModalItem()">{{ item.id }} - {{ item.responsavel }}</button>
           </div>
         </ul>
       </p-panel>

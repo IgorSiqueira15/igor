@@ -6,6 +6,8 @@ import { DragDropModule } from 'primeng/dragdrop';
 import {PanelModule} from 'primeng/panel';
 import { CoreService } from './core.service';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -15,13 +17,15 @@ import { HttpClientModule } from '@angular/common/http';
     DragDropModule,
     PanelModule,
     HttpClientModule,
+    NgbModule
   ],
   exports:[
     DragDropModule,
     PanelModule,
   ],
   providers:[
-    CoreService
+    CoreService,
+    NgbActiveModal
   ]
 })
 export class CoreModule { }

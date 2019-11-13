@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,12 @@ import { ModalComponent } from './modal/modal.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule
+  ],
+  exports: [
+    ModalComponent
+  ],
+  entryComponents:[
+    ModalComponent
   ],
   providers: [CoreService],
   bootstrap: [AppComponent]

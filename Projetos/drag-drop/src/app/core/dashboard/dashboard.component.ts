@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Dashboard } from './dashboard';
 import { CoreService } from '../core.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from 'src/app/modal/modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +17,8 @@ export class DashboardComponent implements OnInit {
 
   itemArrastado = null;
 
-  constructor(private coreService: CoreService) { }
+  constructor(private coreService: CoreService,
+    protected modal: NgbModal) { }
 
   ngOnInit() {
     this.coreService.findAll().then(item => this.items = item);
@@ -34,12 +37,11 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // onModalItem() {
-  //   const modal = this.modal.open(AutorModalListComponent, { size: 'lg' });
-  //   modal.result.then(confirmado => {
-  //     this.onListar();
-  //   });
-  // }
+  onModalItem() {
+    const modal = this.modal.open(ModalComponent, { size: 'lg' });
+    modal.result.then(confirmado => {
+    });
+  }
 
 
 }

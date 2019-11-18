@@ -3,6 +3,7 @@ import { Dashboard } from './dashboard';
 import { CoreService } from '../core.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from 'src/app/modal/modal.component';
+import { Panel } from 'primeng/panel';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,7 @@ import { ModalComponent } from 'src/app/modal/modal.component';
 })
 export class DashboardComponent implements OnInit {
   items: Dashboard[];
+  panels: Panel[];
 
   dropped = [];
 
@@ -21,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   itemArrastado = null;
 
-  constructor(private coreService: CoreService, protected modal: NgbModal) {}
+  constructor(private coreService: CoreService, protected modal: NgbModal) { }
 
   ngOnInit() {
     this.coreService.findAll().then(item => (this.items = item));
@@ -30,14 +32,14 @@ export class DashboardComponent implements OnInit {
   dragStart(event, item: Dashboard) {
     this.itemArrastado = item;
   }
-  dragEnd(event) {}
+  dragEnd(event) { }
 
   drop(event) {
     console.log(this.items);
 
     if (this.itemArrastado) {
       switch (
-        document.getElementsByTagName('p-panel')[1].getAttribute('header')
+      document.getElementsByTagName('p-panel')[1].getAttribute('header')
       ) {
         case 'Desenvolvimento':
           this.desenvolvendo.push(this.itemArrastado);
@@ -58,6 +60,6 @@ export class DashboardComponent implements OnInit {
 
   onModalItem() {
     const modal = this.modal.open(ModalComponent, { size: 'lg' });
-    modal.result.then(confirmado => {});
+    modal.result.then(confirmado => { });
   }
 }

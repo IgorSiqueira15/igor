@@ -6,6 +6,7 @@ import { DragDropModule } from 'primeng/dragdrop';
 import {PanelModule} from 'primeng/panel';
 import { CoreService } from './core.service';
 import { HttpClientModule } from '@angular/common/http';
+import {ButtonModule} from 'primeng/button';
 import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -17,7 +18,8 @@ import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
     DragDropModule,
     PanelModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ButtonModule
   ],
   exports:[
     DragDropModule,

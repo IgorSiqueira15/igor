@@ -11,12 +11,14 @@ export class AppComponent {
   fileLines: string[];
   count: number = 0;
   games: number[] = [];
+  nGames: number = 0;
+  teste: number = 0;
 
   //Atributos do jogo
-  nGames: number = 0;
   kills = [];
-  players = [];
-  linePlayers: string[];
+  players: string[] = [];
+  auxPlayer: string[] = [];
+  linePlayers: string[] = [];
 
   readFile($event): void {
     this.readThis($event.target);
@@ -39,6 +41,7 @@ export class AppComponent {
       if (line.includes(" InitGame:")) {
         this.nGames++;
         this.count = 0;
+        this.teste++;
       }
       //Busca a quantidade total de kill em cada partida
       if (line.includes("Kill: ")) {
@@ -46,12 +49,25 @@ export class AppComponent {
         if (this.kills[0]) {
           this.count = 0;
         }
-        this.kills[this.nGames - 1] = this.count;
       }
+
+      if (line.includes("ClientUserinfoChanged")) {
+        let inicio = line.indexOf(`n\\`) + 2;
+        let fim = line.indexOf("\\t") - 1;
+        let name: string = "";
+        while (inicio <= fim) {
+          name += line[inicio];
+          inicio++;
+        }
+        this.players.push(name);
+        this.auxPlayer = this.players.filter(
+          (este, i) => this.players.indexOf(este) === i
+        );
+      }
+      this.players = this.auxPlayer;
+      this.kills[this.nGames - 1] = this.count;
       this.games[this.nGames - 1] = this.nGames;
     });
-    console.log("Quantidade de Jogos: " + this.nGames);
-    console.log("Morte de Cada Jogo: " + this.kills);
-    console.log("Teste: " + this.games);
+    console.table("Teste: " + this.players);
   }
 }

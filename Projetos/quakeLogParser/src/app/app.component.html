@@ -1,4 +1,7 @@
+<p>Insira o Arquivo .log abaixo:</p>
+
 <input type="file" #file (change)="readFile($event)" />
+
 <div class="tables-container">
   <table
     style="width: 100%"
@@ -12,10 +15,12 @@
       <th>Kills</th>
     </thead>
     <tbody>
-      <td>{{ i + 1 }}</td>
-      <td>{{ kill ? kill : "0" }}</td>
-      <td></td>
-      <td></td>
+      <tr *ngFor="let player of players">
+        <td>{{ i + 1 }}</td>
+        <td>{{ kill ? kill : "0" }}</td>
+        <td>{{ player }}</td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
 </div>

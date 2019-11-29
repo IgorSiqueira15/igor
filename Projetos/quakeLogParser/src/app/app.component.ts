@@ -8,10 +8,15 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "quakeLogParser";
 
+
   fileLines: string[];
-  games: number = -1;
-  deaths: number = 0;
-  numberLines: number = 0;
+  count: number = 0;
+  
+  //Atributos do jogo
+  games: number = 0;
+  kills = [];
+  players = [];
+  linePlayers: string[];
 
   readFile($event): void {
     this.readThis($event.target);
@@ -23,33 +28,28 @@ export class AppComponent {
     reader.readAsText(file);
     reader.onload = e => {
       this.logResult(reader.result);
-      // console.log(reader.result);
     };
   }
 
   logResult(log) {
     this.fileLines = log.split(/[0-9]?[0-9]?[0-9]:[0-9][0-9]/);
-    // console.log("Testando: \n" + this.fileLines);
-    let a = [];
-    let count = 0;
+
     this.fileLines.forEach(line => {
-      this.numberLines++;
+      //Busca a quantidade de jogos
       if (line.includes(" InitGame:")) {
         this.games++;
-        count = 0;
+        this.count = 0;
       }
-      if (line.includes("Kill")) {
-        count++;
-        a[this.games] = count;
-      }
-
-      if (this.numberLines >= 675 && this.numberLines <= 815) {
-        this.deaths++;
-      }
+      //Busca a quantidade total de kill em cada partida
+      if (line.includes("Kill: ")) {
+        this.count++;
+        if(this.count === undefined){
+          return this.count = 0;
+        }
+        this.kills[this.games] = this.count;
+      }        
     });
-    console.log("Quantidade de Mortos: " + this.deaths);
-    // console.log("Quantidade de Jogos: " + this.games);
-    // console.log("Numero de Linhas: " + this.numberLines);
-    console.log(a);
+    console.log("Quantidade de Jogos: " + this.games);
+    console.log("Morte de Cada Jogo: " + this.kills);
   }
 }

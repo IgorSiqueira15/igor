@@ -1,6 +1,10 @@
 <input type="file" #file (change)="readFile($event)" />
 <div class="tables-container">
-  <table style="width: 100%" class="col-md-3" *ngFor="let game of games">
+  <table
+    style="width: 100%"
+    class="col-md-3"
+    *ngFor="let kill of kills; let i = index"
+  >
     <thead>
       <th>Nº Jogo</th>
       <th>Total de Kills</th>
@@ -8,8 +12,8 @@
       <th>Kills</th>
     </thead>
     <tbody>
-      <td>{{ game }}</td>
-      <td>{{ kill }}</td>
+      <td>{{ i + 1 }}</td>
+      <td>{{ kill ? kill : "0" }}</td>
       <td></td>
       <td></td>
     </tbody>

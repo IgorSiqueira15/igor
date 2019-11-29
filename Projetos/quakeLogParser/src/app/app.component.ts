@@ -8,12 +8,12 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "quakeLogParser";
 
-
   fileLines: string[];
   count: number = 0;
-  
+  games: number[] = [];
+
   //Atributos do jogo
-  games: number = 0;
+  nGames: number = 0;
   kills = [];
   players = [];
   linePlayers: string[];
@@ -37,19 +37,21 @@ export class AppComponent {
     this.fileLines.forEach(line => {
       //Busca a quantidade de jogos
       if (line.includes(" InitGame:")) {
-        this.games++;
+        this.nGames++;
         this.count = 0;
       }
       //Busca a quantidade total de kill em cada partida
       if (line.includes("Kill: ")) {
         this.count++;
-        if(this.count === undefined){
-          return this.count = 0;
+        if (this.kills[0]) {
+          this.count = 0;
         }
-        this.kills[this.games] = this.count;
-      }        
+        this.kills[this.nGames - 1] = this.count;
+      }
+      this.games[this.nGames - 1] = this.nGames;
     });
-    console.log("Quantidade de Jogos: " + this.games);
+    console.log("Quantidade de Jogos: " + this.nGames);
     console.log("Morte de Cada Jogo: " + this.kills);
+    console.log("Teste: " + this.games);
   }
 }

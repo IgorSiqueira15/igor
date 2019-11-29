@@ -1,3 +1,17 @@
 <input type="file" #file (change)="readFile($event)" />
-
-<table class="table" *ngFor="let game of games"></table>
+<div class="tables-container">
+  <table style="width: 100%" class="col-md-3" *ngFor="let game of games">
+    <thead>
+      <th>Nº Jogo</th>
+      <th>Total de Kills</th>
+      <th>Players</th>
+      <th>Kills</th>
+    </thead>
+    <tbody>
+      <td>{{ game }}</td>
+      <td>{{ kill }}</td>
+      <td></td>
+      <td></td>
+    </tbody>
+  </table>
+</div>

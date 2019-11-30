@@ -8,11 +8,11 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "quakeLogParser";
 
+
   fileLines: string[];
   count: number = 0;
   games: number[] = [];
   nGames: number = 0;
-  teste: number = 0;
 
   //Atributos do jogo
   kills = [];
@@ -41,7 +41,6 @@ export class AppComponent {
       if (line.includes(" InitGame:")) {
         this.nGames++;
         this.count = 0;
-        this.teste++;
       }
       //Busca a quantidade total de kill em cada partida
       if (line.includes("Kill: ")) {
@@ -50,7 +49,7 @@ export class AppComponent {
           this.count = 0;
         }
       }
-
+      //Buca a linha onde se encontra nome dos jogadores
       if (line.includes("ClientUserinfoChanged")) {
         let inicio = line.indexOf(`n\\`) + 2;
         let fim = line.indexOf("\\t") - 1;
@@ -60,6 +59,7 @@ export class AppComponent {
           inicio++;
         }
         this.players.push(name);
+        //Não permite que tenha dois jogadores com o mesmo nome
         this.auxPlayer = this.players.filter(
           (este, i) => this.players.indexOf(este) === i
         );
@@ -68,6 +68,5 @@ export class AppComponent {
       this.kills[this.nGames - 1] = this.count;
       this.games[this.nGames - 1] = this.nGames;
     });
-    console.table("Teste: " + this.players);
   }
 }
